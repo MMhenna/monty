@@ -28,6 +28,7 @@ void print_top(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
 		err(6, line_number);
+		exit(EXIT_FAILURE);
 	fprintf(stdout, "%d\n", (*stack)->n);
 }
 

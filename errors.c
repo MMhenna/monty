@@ -23,28 +23,28 @@ void err(int error_code, ...)
 	switch (error_code)
 	{
 		case 1:
-			printf("USAGE: monty file\n");
+			fprintf(stderr, "USAGE: monty file\n");
 		case 2:
-			printf("Error: Can't open file %s\n",
+			fprintf(stderr, "Error: Can't open file %s\n",
 				va_arg(ag, char *));
 		case 3:
 			l_num = va_arg(ag, int);
 			op = va_arg(ag, char *);
-			printf("L%d: unknown instruction %s\n", l_num, op);
+			fprintf(stderr, "L%d: unknown instruction %s\n", l_num, op);
 		case 4:
-			printf("Error: malloc failed\n");
+			fprintf(stderr, "Error: malloc failed\n");
 		case 5:
-			printf("L%d: usage: push integer\n", va_arg(ag, int));
+			fprintf(stderr, "L%d: usage: push integer\n", va_arg(ag, int));
 		case 6:
-			printf("L%d: can't pint, stack empty\n",
+			fprintf(stderr, "L%d: can't pint, stack empty\n",
 				va_arg(ag, int));
 		case 7:
-			printf("L%d: can't pop an empty stack\n",
+			fprintf(stderr, "L%d: can't pop an empty stack\n",
 				va_arg(ag, int));
 		case 8:
 			l_num = va_arg(ag, int);
 			op = va_arg(ag, char *);
-			printf("L%d: can't %s, stack too short\n", l_num, op);
+			fprintf(stderr, "L%d: can't %s, stack too short\n", l_num, op);
 		default:
 			break;
 	}
